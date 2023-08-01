@@ -1,0 +1,24 @@
+@{
+    Layout = "_Layout";
+}
+
+@using University.Models;
+
+<h1>Courses of UGG</h1>
+<hr />
+
+<h2> Here is a list of all the Courses</h2>
+
+@if (@Model.Count == 0)
+{
+    <h4> "There are no Courses added to UGG's database"</h4>
+}
+
+@foreach (Course course in Model)
+{
+    <h4> @Html.ActionLink($"{course.Name}", "Details", new {id = course.CourseId}) </h4>
+}
+
+<hr />
+<p>@Html.ActionLink("Add new course", "Create")</p>
+<p>@Html.ActionLink("Back to Home", "Index", "Home")</p>
