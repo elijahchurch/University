@@ -1,5 +1,6 @@
 html {
   font-size: 14px;
+  font-style:oblique;
 }
 
 @media (min-width: 768px) {
@@ -18,5 +19,12 @@ html {
 }
 
 body {
+  background-color: lightgray;
   margin-bottom: 60px;
+  text-align: center;
+}
+
+img{
+  width: 700px;
+  margin-top: 0;
 }

@@ -1,0 +1,32 @@
+@{
+    Layout = "_Layout";
+}
+
+@using University.Models
+@model University.Models.Student
+
+<h2>Student Details</h2>
+<hr />
+
+<h3>@Html.DisplayNameFor(model => model.Name) : @Html.DisplayFor(model => model.Name) 
+</h3>
+<h3>Enrollment Date: @Html.DisplayFor(model => model.EnrollmentDate)</h3>
+
+@if(@Model.JoinEntities.Count == 0)
+{
+    <p>This student is currently not signed up for any courses.</p>
+}
+else
+{
+    <h4>Courses this student is registered for:</h4>
+    <ul>
+    @foreach(StudentCourse join in Model.JoinEntities)
+    {
+        <li>@join.Course.Name : @join.Course.CourseNumber</li>
+    }
+    </ul>
+}
+
+<hr />
+<p>@Html.ActionLink("Add a course", "AddCourse", new {id = Model.StudentId})
+<p>@Html.ActionLink("Back to Student list", "index")</p>
